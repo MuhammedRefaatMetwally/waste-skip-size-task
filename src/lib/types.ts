@@ -42,3 +42,12 @@ export interface SelectionSummaryProps {
 export interface ProgressNavigationProps {
     steps: ProgressStep[];
 }
+
+export interface ErrorLoadingProps {
+    error: Error | unknown;
+    refetch: () => void;
+}
+
+export interface LoadingProps {
+    area: string;
+}
