@@ -35,7 +35,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
     const { isDarkMode } = useTheme();
     const totalPrice = calculateTotal(skip.price_before_vat, skip.vat);
 
-    // Add dynamic sizing for visual appeal
     const getSizeCategory = (size: number) => {
         if (size <= 6) return 'small';
         if (size <= 12) return 'medium';
@@ -60,7 +59,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
             style={{ animationDelay: `${animationDelay}ms` }}
             onClick={() => onSelect(skip)}
         >
-            {/* Animated Background Particles */}
             <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
                 isDarkMode
                     ? 'bg-linear-to-br from-purple-900/20 to-blue-900/20'
@@ -70,7 +68,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                 <div className="absolute bottom-8 left-6 w-1 h-1 bg-current opacity-30 rounded-full animate-pulse" />
             </div>
 
-            {/* Size Badge with dynamic styling */}
             <div className="absolute top-4 right-4 z-10">
                 <Badge className={`text-xs font-bold px-3 py-1 ${
                     isSelected
@@ -85,7 +82,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                 </Badge>
             </div>
 
-            {/* Selection Indicator with enhanced animation */}
             {isSelected && (
                 <div className="absolute top-4 left-4 z-10 animate-bounce">
                     <div className="bg-linear-to-r from-green-500 to-emerald-600 text-white rounded-full p-2 shadow-lg">
@@ -94,11 +90,10 @@ const SkipCard: React.FC<SkipCardProps> = ({
                 </div>
             )}
 
-            {/* Premium features indicator */}
             {skip.allows_heavy_waste && skip.allowed_on_road && (
                 <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
                     <div className={`flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                        isDarkMode ? 'bg-yellow-500/20 text-yellow-300' : 'bg-yellow-100 text-yellow-800'
+                        isDarkMode ? 'bg-yellow-500/100 text-white-300' : 'bg-yellow-100 text-yellow-800'
                     }`}>
                         <Zap className="w-3 h-3 mr-1" />
                         Premium
@@ -107,7 +102,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
             )}
 
             <CardHeader className="pb-4">
-                {/* Enhanced Skip Illustration with size-based styling */}
                 <div className={`h-40 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:scale-105 ${
                     isDarkMode
                         ? sizeCategory === 'large'
@@ -123,19 +117,16 @@ const SkipCard: React.FC<SkipCardProps> = ({
                 }`}>
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-500" />
 
-                    {/* Enhanced 3D Skip Container with size scaling */}
                     <div className="relative transform transition-transform duration-500 group-hover:rotate-y-12 group-hover:scale-110">
                         <div className={`${
                             sizeCategory === 'large' ? 'w-32 h-20' : sizeCategory === 'medium' ? 'w-28 h-18' : 'w-24 h-16'
                         } rounded-lg relative shadow-2xl ${
                             isDarkMode ? 'bg-gray-300' : 'bg-yellow-500'
                         }`}>
-                            {/* Skip Front Face */}
                             <div className={`absolute inset-0 rounded-lg ${
                                 isDarkMode ? 'bg-linear-to-b from-gray-200 to-gray-400' : 'bg-linear-to-b from-yellow-400 to-yellow-600'
                             }`} />
 
-                            {/* Skip Side Shadow */}
                             <div className={`absolute top-1 -right-1 w-full h-full rounded-lg ${
                                 isDarkMode ? 'bg-gray-500' : 'bg-yellow-700'
                             } -z-10`} />
@@ -145,12 +136,10 @@ const SkipCard: React.FC<SkipCardProps> = ({
                                 isDarkMode ? 'bg-gray-600' : 'bg-yellow-800'
                             }`} />
 
-                            {/* Dynamic Shine Effect based on size */}
                             <div className={`absolute top-1 left-1 ${
                                 sizeCategory === 'large' ? 'w-6 h-3' : sizeCategory === 'medium' ? 'w-5 h-2.5' : 'w-4 h-2'
                             } bg-white/30 rounded-sm blur-sm`} />
 
-                            {/* Size-based texture lines */}
                             {sizeCategory === 'large' && (
                                 <div className={`absolute bottom-2 left-2 right-2 h-0.5 rounded-full ${
                                     isDarkMode ? 'bg-gray-600' : 'bg-yellow-800'
@@ -158,7 +147,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                             )}
                         </div>
 
-                        {/* Enhanced Size Label */}
                         <div className={`absolute inset-0 flex items-center justify-center ${
                             sizeCategory === 'large' ? 'text-sm' : sizeCategory === 'medium' ? 'text-xs' : 'text-xs'
                         } font-bold ${
@@ -168,7 +156,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                         </div>
                     </div>
 
-                    {/* Floating capacity indicator */}
                     <div className={`absolute bottom-2 right-2 text-xs font-medium px-2 py-1 rounded-full ${
                         isDarkMode ? 'bg-black/30 text-white' : 'bg-white/30 text-white'
                     }`}>
@@ -188,7 +175,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
             </CardHeader>
 
             <CardContent className="pt-0">
-                {/* Enhanced Features with better visual hierarchy */}
                 <div className="space-y-3 mb-6">
                     <div className={`flex items-center text-sm p-2 rounded-lg transition-all duration-300 ${
                         skip.allowed_on_road
@@ -216,7 +202,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                     </div>
                 </div>
 
-                {/* Enhanced Price with value indicator */}
                 <div className="mb-6 relative">
                     <div className={`text-3xl font-bold bg-linear-to-r ${
                         isDarkMode
@@ -237,7 +222,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                     </div>
                 </div>
 
-                {/* Enhanced Select Button */}
                 <Button
                     className={`w-full h-12 font-semibold transition-all duration-500 transform hover:scale-105 relative overflow-hidden ${
                         isDisabled
@@ -250,7 +234,6 @@ const SkipCard: React.FC<SkipCardProps> = ({
                     }`}
                     disabled={isDisabled}
                 >
-                    {/* Animated background effect */}
                     <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
 
                     {isDisabled ? (
