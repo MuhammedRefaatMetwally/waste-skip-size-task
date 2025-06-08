@@ -64,8 +64,8 @@ const SkipSelectionPage: React.FC = () => {
     return (
         <div className={`min-h-screen transition-all duration-700 ${
             isDarkMode
-                ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900'
-                : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'
+                ? 'bg-linear-to-br from-gray-900 via-purple-900 to-indigo-900'
+                : 'bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50'
         }`}>
             <ThemeToggle />
             <ProgressNavigation steps={getProgressSteps()} />
@@ -79,7 +79,7 @@ const SkipSelectionPage: React.FC = () => {
                                 isDarkMode ? 'text-yellow-400' : 'text-indigo-600'
                             } animate-pulse`}
                         />
-                        <h1 className={`text-4xl md:text-6xl font-bold bg-gradient-to-r ${
+                        <h1 className={`text-4xl md:text-6xl font-bold bg-linear-to-r ${
                             isDarkMode
                                 ? 'from-yellow-400 via-purple-400 to-blue-400'
                                 : 'from-indigo-600 via-purple-600 to-blue-600'

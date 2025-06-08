@@ -35,8 +35,8 @@ const SelectionSummary: React.FC<SelectionSummaryProps> = ({
                     <div className="flex items-center space-x-4 animate-slide-right">
                         <div className={`w-12 h-8 rounded-lg ${
                             isDarkMode
-                                ? 'bg-gradient-to-r from-purple-600 to-blue-600'
-                                : 'bg-gradient-to-r from-orange-400 to-red-500'
+                                ? 'bg-linear-to-r from-purple-600 to-blue-600'
+                                : 'bg-linear-to-r from-orange-400 to-red-500'
                         } animate-pulse`} />
                         <div>
                             <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -61,7 +61,7 @@ const SelectionSummary: React.FC<SelectionSummaryProps> = ({
                         </Button>
                         <Button
                             onClick={onContinue}
-                            className="px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-green-500/30"
+                            className="px-8 py-3 bg-linear-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-green-500/30"
                         >
                             Continue to Permit Check →
                         </Button>

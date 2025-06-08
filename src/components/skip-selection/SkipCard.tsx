@@ -51,8 +51,8 @@ const SkipCard: React.FC<SkipCardProps> = ({
                     ? 'opacity-60 cursor-not-allowed'
                     : isSelected
                         ? isDarkMode
-                            ? 'ring-4 ring-purple-500 shadow-2xl shadow-purple-500/30 bg-gradient-to-br from-gray-800 to-purple-900 border-purple-500'
-                            : 'ring-4 ring-indigo-500 shadow-2xl shadow-indigo-500/30 bg-gradient-to-br from-white to-indigo-50 border-indigo-500'
+                            ? 'ring-4 ring-purple-500 shadow-2xl shadow-purple-500/30 bg-linear-to-br from-gray-800 to-purple-900 border-purple-500'
+                            : 'ring-4 ring-indigo-500 shadow-2xl shadow-indigo-500/30 bg-linear-to-br from-white to-indigo-50 border-indigo-500'
                         : isDarkMode
                             ? 'bg-gray-800/80 border-gray-700 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/20'
                             : 'bg-white border-gray-200 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/20'
@@ -63,8 +63,8 @@ const SkipCard: React.FC<SkipCardProps> = ({
             {/* Animated Background Particles */}
             <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
                 isDarkMode
-                    ? 'bg-gradient-to-br from-purple-900/20 to-blue-900/20'
-                    : 'bg-gradient-to-br from-indigo-50/50 to-purple-50/50'
+                    ? 'bg-linear-to-br from-purple-900/20 to-blue-900/20'
+                    : 'bg-linear-to-br from-indigo-50/50 to-purple-50/50'
             }`}>
                 <div className="absolute top-4 right-8 w-2 h-2 bg-current opacity-20 rounded-full animate-ping" />
                 <div className="absolute bottom-8 left-6 w-1 h-1 bg-current opacity-30 rounded-full animate-pulse" />
@@ -74,12 +74,12 @@ const SkipCard: React.FC<SkipCardProps> = ({
             <div className="absolute top-4 right-4 z-10">
                 <Badge className={`text-xs font-bold px-3 py-1 ${
                     isSelected
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white animate-pulse'
+                        ? 'bg-linear-to-r from-green-500 to-emerald-600 text-white animate-pulse'
                         : sizeCategory === 'large'
-                            ? 'bg-gradient-to-r from-red-500 to-pink-600 text-white'
+                            ? 'bg-linear-to-r from-red-500 to-pink-600 text-white'
                             : sizeCategory === 'medium'
-                                ? 'bg-gradient-to-r from-orange-500 to-yellow-600 text-white'
-                                : 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white'
+                                ? 'bg-linear-to-r from-orange-500 to-yellow-600 text-white'
+                                : 'bg-linear-to-r from-blue-500 to-cyan-600 text-white'
                 }`}>
                     {skip.size}yd³
                 </Badge>
@@ -88,7 +88,7 @@ const SkipCard: React.FC<SkipCardProps> = ({
             {/* Selection Indicator with enhanced animation */}
             {isSelected && (
                 <div className="absolute top-4 left-4 z-10 animate-bounce">
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full p-2 shadow-lg">
+                    <div className="bg-linear-to-r from-green-500 to-emerald-600 text-white rounded-full p-2 shadow-lg">
                         <Check className="w-4 h-4" />
                     </div>
                 </div>
@@ -111,15 +111,15 @@ const SkipCard: React.FC<SkipCardProps> = ({
                 <div className={`h-40 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:scale-105 ${
                     isDarkMode
                         ? sizeCategory === 'large'
-                            ? 'bg-gradient-to-br from-red-700 via-pink-700 to-purple-800'
+                            ? 'bg-linear-to-br from-red-700 via-pink-700 to-purple-800'
                             : sizeCategory === 'medium'
-                                ? 'bg-gradient-to-br from-purple-700 via-blue-700 to-indigo-700'
-                                : 'bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-700'
+                                ? 'bg-linear-to-br from-purple-700 via-blue-700 to-indigo-700'
+                                : 'bg-linear-to-br from-blue-600 via-cyan-600 to-teal-700'
                         : sizeCategory === 'large'
-                            ? 'bg-gradient-to-br from-red-400 via-pink-400 to-orange-500'
+                            ? 'bg-linear-to-br from-red-400 via-pink-400 to-orange-500'
                             : sizeCategory === 'medium'
-                                ? 'bg-gradient-to-br from-orange-400 via-red-400 to-pink-500'
-                                : 'bg-gradient-to-br from-blue-400 via-cyan-400 to-teal-500'
+                                ? 'bg-linear-to-br from-orange-400 via-red-400 to-pink-500'
+                                : 'bg-linear-to-br from-blue-400 via-cyan-400 to-teal-500'
                 }`}>
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-500" />
 
@@ -132,7 +132,7 @@ const SkipCard: React.FC<SkipCardProps> = ({
                         }`}>
                             {/* Skip Front Face */}
                             <div className={`absolute inset-0 rounded-lg ${
-                                isDarkMode ? 'bg-gradient-to-b from-gray-200 to-gray-400' : 'bg-gradient-to-b from-yellow-400 to-yellow-600'
+                                isDarkMode ? 'bg-linear-to-b from-gray-200 to-gray-400' : 'bg-linear-to-b from-yellow-400 to-yellow-600'
                             }`} />
 
                             {/* Skip Side Shadow */}
@@ -218,7 +218,7 @@ const SkipCard: React.FC<SkipCardProps> = ({
 
                 {/* Enhanced Price with value indicator */}
                 <div className="mb-6 relative">
-                    <div className={`text-3xl font-bold bg-gradient-to-r ${
+                    <div className={`text-3xl font-bold bg-linear-to-r ${
                         isDarkMode
                             ? 'from-purple-400 to-blue-400'
                             : 'from-indigo-600 to-purple-600'
@@ -243,10 +243,10 @@ const SkipCard: React.FC<SkipCardProps> = ({
                         isDisabled
                             ? 'bg-gray-400 cursor-not-allowed opacity-50'
                             : isSelected
-                                ? 'bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white shadow-lg shadow-green-500/30'
+                                ? 'bg-linear-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white shadow-lg shadow-green-500/30'
                                 : isDarkMode
-                                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/30'
-                                    : 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg shadow-indigo-500/30'
+                                    ? 'bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/30'
+                                    : 'bg-linear-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg shadow-indigo-500/30'
                     }`}
                     disabled={isDisabled}
                 >

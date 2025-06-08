@@ -25,8 +25,8 @@ const FilterControls: React.FC<FilterControlsProps> = ({
                 : 'bg-white/70 border border-white shadow-xl'
         }`}>
             {/* Animated background elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-indigo-500/10 to-cyan-500/10 rounded-full blur-2xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-linear-to-tr from-indigo-500/10 to-cyan-500/10 rounded-full blur-2xl" />
 
             <div className="relative z-10">
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
@@ -41,7 +41,7 @@ const FilterControls: React.FC<FilterControlsProps> = ({
                                 id="road-allowed"
                                 checked={showOnlyRoadAllowed}
                                 onCheckedChange={onFilterChange}
-                                className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-indigo-500 data-[state=checked]:to-purple-600 scale-110"
+                                className="data-[state=checked]:bg-linear-to-r data-[state=checked]:from-indigo-500 data-[state=checked]:to-purple-600 scale-110"
                             />
                             <label htmlFor="road-allowed" className={`text-sm font-medium cursor-pointer flex items-center ${
                                 isDarkMode ? 'text-gray-200' : 'text-gray-700'
