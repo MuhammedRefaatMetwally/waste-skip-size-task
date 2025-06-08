@@ -11,17 +11,29 @@ const ThemeToggle = () => {
                 onClick={toggleTheme}
                 variant="outline"
                 size="icon"
-                className={`h-12 w-12 rounded-full shadow-lg backdrop-blur-sm transition-all duration-500 hover:scale-110 ${
+                className={`h-12 w-12 rounded-full shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-110 active:scale-95 group ${
                     isDarkMode
-                        ? 'bg-yellow-500/90 hover:bg-yellow-400 text-yellow-900 border-yellow-400'
-                        : 'bg-indigo-600/90 hover:bg-indigo-700 text-white border-indigo-500'
+                        ? 'bg-gray-800/95 hover:bg-gray-700 text-yellow-400 border-gray-600 hover:border-yellow-400/50 shadow-yellow-400/20'
+                        : 'bg-white/95 hover:bg-gray-50 text-indigo-600 border-gray-200 hover:border-indigo-300 shadow-indigo-600/20'
                 }`}
             >
                 {isDarkMode ? (
-                    <Sun className="h-6 w-6 animate-spin" />
+                    <Sun className="h-6 w-6 transition-all duration-500 group-hover:rotate-180 group-hover:text-yellow-300" />
                 ) : (
-                    <Moon className="h-6 w-6 rotate-12" />
+                    <Moon className="h-6 w-6 transition-all duration-500 group-hover:rotate-12 group-hover:text-indigo-700" />
                 )}
+
+                {/* Tooltip */}
+                <div className={`absolute -bottom-12 left-1/2 transform -translate-x-1/2 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none ${
+                    isDarkMode
+                        ? 'bg-gray-700 text-gray-200 border border-gray-600'
+                        : 'bg-gray-900 text-white border border-gray-700'
+                }`}>
+                    {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                    <div className={`absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rotate-45 ${
+                        isDarkMode ? 'bg-gray-700 border-l border-t border-gray-600' : 'bg-gray-900 border-l border-t border-gray-700'
+                    }`} />
+                </div>
             </Button>
         </div>
     );
