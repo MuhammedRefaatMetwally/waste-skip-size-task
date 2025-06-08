@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# 🏗️ Skip Selection Page – Redesign & Implementation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a complete redesign of the **Skip Selection Page** while preserving all of its original functionality. The goal was to improve the UI/UX, make the page responsive for both mobile and desktop, and ensure the codebase is clean, maintainable, and scalable.
+---
 
-Currently, two official plugins are available:
+## ✅ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* 🌟 Fully redesigned layout using **modern UI/UX principles**
+* ⚙️ Functionality preserved from the original implementation
+* 💻📱 Responsive on both **mobile** and **desktop**
+* ⚡ Performance optimized with **React hooks** and memoization
+* 📦 Data fetching with **Axios** + **React Query**
+* 🎨 Styling with **Tailwind CSS** and **ShadCN UI**
+* 🧩 Built with **TypeScript** and **reusable components**
+* 🤖 Enhanced productivity using **AI tools (Lovable, Claude 4)** for design and code generation
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧠 My Approach
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. **Design Analysis & Planning**
+
+   * Carefully analyzed the original page and identified the parts that needed a UI/UX overhaul.
+   * Noted issues in responsiveness (especially in the progress navigation) and marked areas for improvement.
+
+2. **AI-Assisted Design & Development**
+
+   * Used **Lovable AI** with a carefully crafted prompt to generate a visually appealing and modern design.
+   * Utilized **Claude 4 AI** to assist in resolving responsiveness issues and generate optimized component structures.
+   * AI tools also supported **code generation**, reducing development time and improving consistency.
+
+3. **Development & Data Integration**
+
+   * Rebuilt the UI using **React + TypeScript** with **reusable components** for maintainability.
+   * Fetched skip options using **Axios** and **React Query** for efficient and reliable data management.
+   * Applied **Tailwind CSS** and **ShadCN UI** for clean, responsive, and consistent design.
+
+4. **Performance Optimization**
+
+   * Applied `useCallback`, `useMemo`, and other React optimization techniques to avoid unnecessary re-renders and improve overall performance.
+
+5. **Final Testing & Verification**
+
+   * Ensured the redesigned page was fully functional and responsive on various screen sizes.
+   * Verified that all original behaviors and functionality remained intact after the redesign.
+
+---
+
+## 🛠 Tech Stack
+
+* **React** (with Hooks)
+* **TypeScript**
+* **Axios**
+* **React Query**
+* **Tailwind CSS**
+* **ShadCN UI**
+* **AI Tools:** Lovable, Claude 4, Grok
+
+---
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/yourusername/skip-redesign
+cd skip-redesign
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Screenshots
+![1](https://github.com/user-attachments/assets/beefd2b4-e5a2-427d-8a31-364a18f33900)
+![2](https://github.com/user-attachments/assets/de4bc0a4-249c-4372-b098-a403508f60f0)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
