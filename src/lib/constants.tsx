@@ -1,9 +1,7 @@
-import type {ProgressStep, Skip} from "@/lib/types.ts";
-import {useMemo} from "react";
-import {AlertTriangle, Calendar, CreditCard, MapPin, Package, Truck} from "lucide-react";
+import type { ProgressStep, Skip } from "@/lib/types.ts";
+import { AlertTriangle, Calendar, CreditCard, MapPin, Package, Truck } from "lucide-react";
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
-export const skipsData = useMemo<Skip[]>(() => [
+export const skipsData: Skip[] = [
     {
         id: 17933,
         size: 4,
@@ -85,10 +83,9 @@ export const skipsData = useMemo<Skip[]>(() => [
         allowed_on_road: false,
         allows_heavy_waste: false
     }
-], []);
+] as const; // makes the array readonly for extra type safety
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
-export const progressSteps = useMemo<ProgressStep[]>(() => [
+export const progressSteps: ProgressStep[] = [
     {
         id: 1,
         name: 'Postcode',
@@ -126,4 +123,11 @@ export const progressSteps = useMemo<ProgressStep[]>(() => [
         icon: CreditCard,
         completed: false
     },
-], []);
+] as const;
+
+
+export const getSkipsData = (): Skip[] => skipsData;
+export const getProgressSteps = (): ProgressStep[] => progressSteps;
+
+export const getRoadAllowedSkips = (): Skip[] =>
+    skipsData.filter(skip => skip.allowed_on_road);

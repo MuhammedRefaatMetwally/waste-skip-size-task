@@ -7,13 +7,12 @@ import FilterControls from './skip-selection/FilterControls';
 import SelectionSummary from './skip-selection/SelectionSummary';
 import { useTheme } from './skip-selection/ThemeProvider';
 import type {Skip} from "@/lib/types.ts";
-import {progressSteps, skipsData} from "@/lib/constants.tsx";
+import {getProgressSteps, getRoadAllowedSkips, getSkipsData} from "@/lib/constants.tsx";
 
 const SkipSelectionPage: React.FC = () => {
     const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
     const [showOnlyRoadAllowed, setShowOnlyRoadAllowed] = useState<boolean>(false);
     const { isDarkMode } = useTheme();
-
 
     const calculateTotal = useCallback((priceBeforeVat: number, vat: number): number => {
         return Math.round(priceBeforeVat * (1 + vat / 100));
@@ -21,9 +20,9 @@ const SkipSelectionPage: React.FC = () => {
 
     const filteredSkips = useMemo<Skip[]>(() =>
             showOnlyRoadAllowed
-                ? skipsData.filter((skip: Skip) => skip.allowed_on_road)
-                : skipsData,
-        [skipsData, showOnlyRoadAllowed]
+                ? getRoadAllowedSkips()
+                : getSkipsData(),
+        [showOnlyRoadAllowed]
     );
 
     const isSkipDisabled = useCallback((skip: Skip): boolean => {
@@ -49,8 +48,6 @@ const SkipSelectionPage: React.FC = () => {
         }
     }, [selectedSkip]);
 
-    // Properly typed progress steps
-
     // Properly typed continue handler
     const handleContinue = useCallback((): void => {
         if (selectedSkip) {
@@ -71,7 +68,7 @@ const SkipSelectionPage: React.FC = () => {
                 : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'
         }`}>
             <ThemeToggle />
-            <ProgressNavigation steps={progressSteps} />
+            <ProgressNavigation steps={getProgressSteps()} />
 
             <div className="max-w-7xl mx-auto px-4 py-12">
                 {/* Header */}
@@ -105,7 +102,7 @@ const SkipSelectionPage: React.FC = () => {
                 <FilterControls
                     showOnlyRoadAllowed={showOnlyRoadAllowed}
                     onFilterChange={handleFilterChange}
-                    totalCount={skipsData.length}
+                    totalCount={getSkipsData().length}
                     filteredCount={filteredSkips.length}
                 />
 
